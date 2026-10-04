@@ -576,13 +576,6 @@ function SWEP:ThrowJunk(model_file)
 
     phys:ApplyForceCenter(velocity)
 
-    cleanup.Add(self.Owner, "props", ent)
-
-    undo.Create("Thrown_Junk")
-    undo.AddEntity(ent)
-    undo.SetPlayer(self.Owner)
-    undo.Finish()
-
     -- Remove the junk after the configured amount of time
     local removeTime = GetConVar("junk_remove_time"):GetFloat()
 
